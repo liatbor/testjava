@@ -1,0 +1,24 @@
+---
+spring:
+  config.activate.on-profile: default
+  sql.init.schema-locations: classpath:schema-h2.sql
+cds:
+  data-source.auto-config.enabled: false
+--- 
+spring:
+  config.activate.on-profile: mocked
+logging:
+  level:
+    com.sap.cds.remote.wire: DEBUG
+cds:
+  application.services:
+    api-business-partner-mocked:
+      model: API_BUSINESS_PARTNER
+      serve:
+        path: API_BUSINESS_PARTNER
+  remote.services:
+    '[API_BUSINESS_PARTNER]':
+      http:
+        suffix: "/api"
+      destination:
+        name: "myself"
