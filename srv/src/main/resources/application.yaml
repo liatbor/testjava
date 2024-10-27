@@ -19,6 +19,15 @@ cds:
   remote.services:
     '[API_BUSINESS_PARTNER]':
       http:
-        suffix: /odata/v4
+        suffix: "/odata/v4"
       destination:
         name: "s4-business-partner-api-mocked"
+---
+spring:
+  config.activate.on-profile: destination
+cds:
+  remote.services:
+    '[API_BUSINESS_PARTNER]':
+      type: "odata-v2"
+      destination:
+        name: "BusinessPartnerFullURL_liat"
