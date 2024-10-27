@@ -19,6 +19,6 @@ cds:
   remote.services:
     '[API_BUSINESS_PARTNER]':
       http:
-        suffix: "/api"
+        suffix: /odata/v4
       destination:
-        name: "myself"
+        name: "s4-business-partner-api-mocked"
